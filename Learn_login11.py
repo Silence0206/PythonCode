@@ -37,14 +37,14 @@ with openner.open(url ,login_data.encode('utf-8')) as f:
     print("========接下来打开其他页面===========")
 
 # 打开主页测试
-response = openner.open("http://m.weibo.cn/")
+response = openner.open("http://weibo.cn/")
 for k, v in f.getheaders():
     if k == "Set-Cookie" and v is not None:
         print('%s: %s' % (k, v))
 
 html = response.read().decode('utf-8')
 soup = BeautifulSoup(html,"html.parser")
-print(soup)
+print(soup.prettify())
 
 
 
