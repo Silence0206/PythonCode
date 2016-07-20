@@ -13,3 +13,4 @@ print(values)
 # conn.commit()
 cursor.close()
 conn.close()
+#用于学习
