@@ -37,7 +37,7 @@ with openner.open(url ,login_data.encode('utf-8')) as f:
     print("========接下来打开其他页面=============")
 
 # 打开主页测试
-response = openner.open(" ")
+response = openner.open("http://weibo.cn")
 for k, v in f.getheaders():
     if k == "Set-Cookie" and v is not None:
         print('%s: %s' % (k, v))
