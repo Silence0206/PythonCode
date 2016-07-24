@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d958264-8bac-4fa3-9742-163ed34d0a23" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Dianping_All_rest_Order.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Dianping_BissRegion.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dianping.py" afterPath="$PROJECT_DIR$/Dianping.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dianping_Allrest.py" afterPath="$PROJECT_DIR$/Dianping_Allrest.py" />
     </list>
     <ignored path="PythonCode.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,7 +30,7 @@
     <SUITE FILE_PATH="coverage/PythonCode$fanpa.coverage" NAME="fanpa Coverage Results" MODIFIED="1469117090584" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PythonCode$Learn_login11.coverage" NAME="Learn_login11 Coverage Results" MODIFIED="1469157581303" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PythonCode$_pydev_execfile.coverage" NAME="_pydev_execfile Coverage Results" MODIFIED="1469088405975" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps" />
-    <SUITE FILE_PATH="coverage/PythonCode$Dianping_All_rest_Order.coverage" NAME="Dianping_All_rest_Order Coverage Results" MODIFIED="1469330652982" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PythonCode$Dianping_All_rest_Order.coverage" NAME="Dianping_All_rest_Order Coverage Results" MODIFIED="1469343956351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PythonCode$SonwLearn.coverage" NAME="SonwLearn Coverage Results" MODIFIED="1468386194125" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PythonCode$sameple.coverage" NAME="sameple Coverage Results" MODIFIED="1468318303204" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PythonCode$Learn_login.coverage" NAME="Learn_login Coverage Results" MODIFIED="1469157506275" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -70,12 +66,12 @@
       <file leaf-file-name="Dianping_All_rest_Order.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Dianping_All_rest_Order.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+            <state relative-caret-position="219">
+              <caret line="161" column="47" selection-start-line="161" selection-start-column="47" selection-end-line="161" selection-end-column="47" />
               <folding>
-                <marker date="1469330634301" expanded="true" signature="1405:1816" ph="create table... restaurants" />
-                <marker date="1469330634301" expanded="true" signature="2194:2462" ph="INSERT INTO restaurants... " />
-                <marker date="1469330634301" expanded="true" signature="7346:7372" ph="select * fro... bussi_region" />
+                <marker date="1469343977248" expanded="true" signature="1405:1816" ph="create table... restaurants" />
+                <marker date="1469343977248" expanded="true" signature="2194:2462" ph="INSERT INTO restaurants... " />
+                <marker date="1469343977248" expanded="true" signature="7346:7372" ph="select * fro... bussi_region" />
               </folding>
             </state>
           </provider>
@@ -666,14 +662,28 @@
       <option name="project" value="LOCAL" />
       <updated>1469203550936</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="按照商区每个区50页爬取完成（按照评论数逆序)">
+      <created>1469343684819</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1469343684819</updated>
+    </task>
+    <task id="LOCAL-00007" summary="按照商区每个区50页爬取完成（按照评论数逆序)">
+      <created>1469343984057</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1469343984057</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17291667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17291667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29281184" sideWeight="0.471875" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -709,7 +719,8 @@
     <MESSAGE value="上海各个区爬取完成" />
     <MESSAGE value="爬取一页的评论完成" />
     <MESSAGE value="按照行政区每个区50页爬取完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="按照行政区每个区50页爬取完成" />
+    <MESSAGE value="按照商区每个区50页爬取完成（按照评论数逆序)" />
+    <option name="LAST_COMMIT_MESSAGE" value="按照商区每个区50页爬取完成（按照评论数逆序)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1064,12 +1075,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Dianping_All_rest_Order.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+        <state relative-caret-position="219">
+          <caret line="161" column="47" selection-start-line="161" selection-start-column="47" selection-end-line="161" selection-end-column="47" />
           <folding>
-            <marker date="1469330634301" expanded="true" signature="1405:1816" ph="create table... restaurants" />
-            <marker date="1469330634301" expanded="true" signature="2194:2462" ph="INSERT INTO restaurants... " />
-            <marker date="1469330634301" expanded="true" signature="7346:7372" ph="select * fro... bussi_region" />
+            <marker date="1469343977248" expanded="true" signature="1405:1816" ph="create table... restaurants" />
+            <marker date="1469343977248" expanded="true" signature="2194:2462" ph="INSERT INTO restaurants... " />
+            <marker date="1469343977248" expanded="true" signature="7346:7372" ph="select * fro... bussi_region" />
           </folding>
         </state>
       </provider>
