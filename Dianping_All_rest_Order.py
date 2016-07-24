@@ -1,12 +1,12 @@
 # *- coding: utf-8 -*-
+#提取商区表的所有数据，根据每个商区页面爬取它按照评论数逆序排列的50页商家
 import mysql.connector
 import requests
 import datetime
 import time
 import re
 from bs4 import BeautifulSoup
-#根据行政区爬取智能推荐的50页店面
-SleepNum = 3000     # 抓取页面的间隔时间，可为0
+SleepNum = 1     # 抓取页面的间隔时间，可为0
 headers = {
     "Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
     "Accept-Language" :"zh-CN,zh;q=0.8",
@@ -22,7 +22,7 @@ def create_database(usr, pwd, db):
         conn = mysql.connector.connect(user=usr, password=pwd, database=db)
         cursor = conn.cursor()
         cursor.execute(
-            'create table restaurants (res_id varchar(20) primary key, res_name varchar(90), res_regionId varchar(20),'
+            'create table restaurants (res_id varchar(20) primary key, res_name varchar(90),'
             '  res_link  text(20),isgroup bool,ispromote bool,isbook bool,iscard bool,isout bool,'
             'rank INT ,comm_num INT ,mean_price INT,category_Id varchar(20),'
             'taste DOUBLE ,envir DOUBLE ,service DOUBLE ,bussi_areaId varchar(20),'
@@ -36,33 +36,37 @@ def create_database(usr, pwd, db):
 
 
 #更新一条记录的状态
-def insert_res(res_id,res_name, res_regionId,res_link,isgroup,ispromote,isbook,iscard,isout,rank,comm_num,mean_price,category_Id,taste,envir,service,bussi_areaId,addr,addtime):
+def insert_res(res_id,res_name,res_link,isgroup,ispromote,isbook,iscard,isout,rank,comm_num,mean_price,category_Id,taste,envir,service,bussi_areaId,addr,addtime):
     global conn
     cursor = conn.cursor()
     cursor.execute(
-        'INSERT INTO restaurants (res_id,res_name, res_regionId,res_link,isgroup,ispromote,isbook,iscard,isout,rank,comm_num,mean_price,category_Id,taste,envir,service,bussi_areaId,addr,addtime,flag)'
-        'VALUES (%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s);',
+        'INSERT INTO restaurants (res_id,res_name,res_link,isgroup,ispromote,isbook,iscard,isout,rank,comm_num,mean_price,category_Id,taste,envir,service,bussi_areaId,addr,addtime,flag)'
+        'VALUES (%s, %s, %s, %s, %s,%s, %s, %s, %s, %s, %s, %s, %s, %s,%s, %s, %s, %s, %s);',
         (
-        res_id, res_name, res_regionId, res_link, isgroup, ispromote, isbook, iscard, isout, rank, comm_num, mean_price,
+        res_id, res_name, res_link, isgroup, ispromote, isbook, iscard, isout, rank, comm_num, mean_price,
         category_Id, taste, envir, service, bussi_areaId, addr, addtime, False))
     conn.commit()
     cursor.close()
-    print(res_id, res_name, res_regionId, res_link, isgroup, ispromote, isbook, iscard, isout, rank, comm_num,
+    print(res_id, res_name, res_link, isgroup, ispromote, isbook, iscard, isout, rank, comm_num,
           mean_price, category_Id, taste, envir, service, bussi_areaId, addr, addtime, "插入成功")
 
 #分析一页的数据并存储数据库
-def find_res_onePage(url,region_id):
+def find_res_onePage(url):
     try:
         req = requests.get(url, headers=headers)
         soup = BeautifulSoup(req.text, 'lxml')
         # 页码
-        curr_pageNum = soup.find(class_="page").find(class_="cur").get_text()
-        print("开始爬", url, "\n该页为第", curr_pageNum, "页")
+        if(soup.find(class_="page") is not  None):
+            curr_pageNum = soup.find(class_="page").find(class_="cur").get_text()
+            print("开始爬", url, "\n该页为第", curr_pageNum, "页")
+        else:
+            print("开始爬", url, "\n该页为第1页 共1页")
+            curr_pageNum = 1
         shops = soup.find(id="shop-all-list")
     except BaseException as e:
         print(url,"打开出错休息5秒 错误原因：", e)
         time.sleep(5)
-        return
+        return ("")
     for shop in shops.find_all("li"):
         try:
             atts = shop.attrs
@@ -104,7 +108,7 @@ def find_res_onePage(url,region_id):
                 else:
                     mean_price = 0
                 # 口味环境服务
-                if(comm_num != 0):
+                if(item.find(class_="comment-list") is not None):
                     comment_list = item.select(".comment-list ")[0]
                     taste = comment_list.select("span:nth-of-type(1) ")[0].find("b").get_text()
                     envir = comment_list.select("span:nth-of-type(2) ")[0].find("b").get_text()
@@ -117,12 +121,15 @@ def find_res_onePage(url,region_id):
                 bussi_areaId = tag_addr.select("a:nth-of-type(2)")[0]["href"].split("/")[-1]
                 addr = tag_addr.select(".addr")[0].get_text(strip=True)
                 addtime = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                insert_res(id, name, region_id, href, igroup, ipromote, ibook, icard, iout, rank,
+                insert_res(id, name, href, igroup, ipromote, ibook, icard, iout, rank,
                        comm_num, mean_price, categoryId, taste, envir, service, bussi_areaId, addr, addtime)
         except BaseException as e:
-            print("出错啦",e)
+            print("解析该页的某条数据出错啦",e)
     print("第", curr_pageNum, "页爬取完成")
-    next_page = soup.find(class_="page").find(class_="next")
+    if(soup.find(class_="page") is not None):
+        next_page = soup.find(class_="page").find(class_="next")
+    else:
+        next_page = None
     if(next_page is not None):
         return ("http://www.dianping.com" +next_page["href"], curr_pageNum, url)
     else:
@@ -135,7 +142,7 @@ def read_list(usr, pwd, db):
     try:
         conn1 = mysql.connector.connect(user=usr, password=pwd, database=db)
         cursor = conn1.cursor()
-        cursor.execute( 'select * from area')
+        cursor.execute( 'select * from bussi_region')
         rows = cursor.fetchall()
         cursor.close()
         conn1.close()
@@ -146,20 +153,24 @@ def read_list(usr, pwd, db):
 
 
 
-#存取所页面数据
-def find_all(url,region_id):
+#存取某商圈50页面数据
+def find_all(url):
     link = url
     while (link != ""):
-        link = find_res_onePage(link,region_id)[0]
+        link = find_res_onePage(link)[0]
 
 create_database('root', '58424716', 'dianping')
 a=read_list('root', '58424716', 'dianping')
 for item in a:
-    region_id=item[0] #区域id 区域名称 区域链接
+    region_id=item[0] #商圈id 商圈名称 商圈链接
     region_name=item[1]
-    region_link =item[2]
-    print("========开始爬取 id:",region_id,"区域名称：",region_name,"链接：",region_link)
+    region_link =item[2]+"o10" #店铺按照点评最多排序
+    print("========开始爬取 商圈id:",region_id,"商圈名称：",region_name,"链接：",region_link)
     # find_res_onePage(region_link,region_id)
-    find_all(region_link, region_id)
-# find_res_onePage("http://www.dianping.com/search/category/1/10/c3580p46?aid=67224668%2C66553218%2C58311855%2C67218964%2C57309973%2C59398184")
-# find_all("http://www.dianping.com/search/category/1/10/r1","r1")
+    # try:
+    #     find_all(region_link)
+    # except BaseException as e:
+    #     print("爬取该商圈出错啦",e)
+    #     pass
+        # find_res_onePage("http://www.dianping.com/search/category/1/10/c3580p46?aid=67224668%2C66553218%2C58311855%2C67218964%2C57309973%2C59398184")
+# find_all("http://www.dianping.com/search/category/1/10/r22948o10")

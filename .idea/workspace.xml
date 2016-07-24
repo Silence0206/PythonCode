@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d958264-8bac-4fa3-9742-163ed34d0a23" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Dianping_All_rest_Order.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Dianping_BissRegion.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dianping.py" afterPath="$PROJECT_DIR$/Dianping.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dianping_Allrest.py" afterPath="$PROJECT_DIR$/Dianping_Allrest.py" />
     </list>
     <ignored path="PythonCode.iws" />
@@ -20,6 +23,7 @@
     <SUITE FILE_PATH="coverage/PythonCode$eg.coverage" NAME="eg Coverage Results" MODIFIED="1468505406062" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PythonCode$3.coverage" NAME="爬虫3 Coverage Results" MODIFIED="1468224976756" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PythonCode$Webdetail_change.coverage" NAME="Webdetail_change Coverage Results" MODIFIED="1468498114219" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PythonCode$Dianping_BissRegion.coverage" NAME="Dianping_BissRegion Coverage Results" MODIFIED="1469281424008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PythonCode$xueshouce.coverage" NAME="xueshouce Coverage Results" MODIFIED="1468321401074" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PythonCode$test.coverage" NAME="test Coverage Results" MODIFIED="1468066675391" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PythonCode$pylearning.coverage" NAME="pylearning Coverage Results" MODIFIED="1468475765903" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -30,6 +34,7 @@
     <SUITE FILE_PATH="coverage/PythonCode$fanpa.coverage" NAME="fanpa Coverage Results" MODIFIED="1469117090584" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PythonCode$Learn_login11.coverage" NAME="Learn_login11 Coverage Results" MODIFIED="1469157581303" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PythonCode$_pydev_execfile.coverage" NAME="_pydev_execfile Coverage Results" MODIFIED="1469088405975" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps" />
+    <SUITE FILE_PATH="coverage/PythonCode$Dianping_All_rest_Order.coverage" NAME="Dianping_All_rest_Order Coverage Results" MODIFIED="1469330652982" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PythonCode$SonwLearn.coverage" NAME="SonwLearn Coverage Results" MODIFIED="1468386194125" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PythonCode$sameple.coverage" NAME="sameple Coverage Results" MODIFIED="1468318303204" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PythonCode$Learn_login.coverage" NAME="Learn_login Coverage Results" MODIFIED="1469157506275" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -46,17 +51,70 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Dianping_Allrest.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Dianping_Allrest.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dianping_Allrest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
-              <caret line="160" column="42" selection-start-line="160" selection-start-column="42" selection-end-line="160" selection-end-column="42" />
+            <state relative-caret-position="190">
+              <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
               <folding>
                 <element signature="e#23#45#0" expanded="true" />
-                <marker date="1469197084259" expanded="true" signature="1370:1807" ph="create table... restaurants" />
-                <marker date="1469197084259" expanded="true" signature="2199:2484" ph="INSERT INTO restaurants... " />
-                <marker date="1469197084259" expanded="true" signature="7139:7157" ph="select * fro... area" />
-                <marker date="1469197084259" expanded="true" signature="7139:7158" ph="create table... restaurants" />
+                <marker date="1469284378962" expanded="true" signature="1388:1825" ph="create table... restaurants" />
+                <marker date="1469284378962" expanded="true" signature="2217:2502" ph="INSERT INTO restaurants... " />
+                <marker date="1469284378962" expanded="true" signature="7157:7175" ph="select * fro... area" />
+                <marker date="1469284378962" expanded="true" signature="7157:7176" ph="create table... restaurants" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Dianping_All_rest_Order.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Dianping_All_rest_Order.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="48">
+              <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+              <folding>
+                <marker date="1469330634301" expanded="true" signature="1405:1816" ph="create table... restaurants" />
+                <marker date="1469330634301" expanded="true" signature="2194:2462" ph="INSERT INTO restaurants... " />
+                <marker date="1469330634301" expanded="true" signature="7346:7372" ph="select * fro... bussi_region" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="taobao.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/taobao.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="779">
+              <caret line="41" column="35" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="35" />
+              <folding>
+                <marker date="1469263206037" expanded="true" signature="1402:1473" ph="insert into commenttxu5_1... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Dianping.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dianping.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="38">
+              <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+              <folding>
+                <marker date="1469284343546" expanded="true" signature="656:793" ph="create table... area" />
+                <marker date="1469284343546" expanded="true" signature="987:1075" ph="INSERT INTO area... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Dianping_BissRegion.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dianping_BissRegion.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-38">
+              <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+              <folding>
+                <marker date="1469281421322" expanded="true" signature="693:860" ph="create table... bussi_region" />
+                <marker date="1469281421322" expanded="true" signature="1147:1257" ph="INSERT INTO bussi_region... " />
+                <marker date="1469281421322" expanded="true" signature="1557:1575" ph="select * fro... area" />
               </folding>
             </state>
           </provider>
@@ -102,43 +160,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Learn_login.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Learn_login.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Learn_login11.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Learn_login11.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="798">
               <caret line="45" column="38" selection-start-line="45" selection-start-column="27" selection-end-line="45" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="eg_mysql.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Desktop/eg_mysql.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1468942349375" expanded="true" signature="364:396" ph="select * fro... user" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hotel.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hotel.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -178,8 +204,10 @@
         <option value="$PROJECT_DIR$/mysql.py" />
         <option value="$PROJECT_DIR$/fanpa.py" />
         <option value="$PROJECT_DIR$/Learn_login11.py" />
+        <option value="$PROJECT_DIR$/Dianping_BissRegion.py" />
         <option value="$PROJECT_DIR$/Dianping.py" />
         <option value="$PROJECT_DIR$/Dianping_Allrest.py" />
+        <option value="$PROJECT_DIR$/Dianping_All_rest_Order.py" />
       </list>
     </option>
   </component>
@@ -273,25 +301,7 @@
       <recent name="E:\PythonCode" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Dianping_Allrest">
-    <configuration default="false" name="Dianping" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="PythonCode" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Dianping.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.Dianping_All_rest_Order">
     <configuration default="false" name="Dianping_Allrest" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -306,24 +316,6 @@
       <module name="PythonCode" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Dianping_Allrest.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="fanpa" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="PythonCode" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fanpa.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -360,6 +352,42 @@
       <module name="PythonCode" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Learn_login11.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Dianping_BissRegion" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="PythonCode" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Dianping_BissRegion.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Dianping_All_rest_Order" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="PythonCode" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Dianping_All_rest_Order.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -573,19 +601,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.Dianping" />
-      <item index="1" class="java.lang.String" itemvalue="Python.Dianping_Allrest" />
-      <item index="2" class="java.lang.String" itemvalue="Python.fanpa" />
-      <item index="3" class="java.lang.String" itemvalue="Python.Learn_login" />
-      <item index="4" class="java.lang.String" itemvalue="Python.Learn_login11" />
+      <item index="0" class="java.lang.String" itemvalue="Python.Dianping_Allrest" />
+      <item index="1" class="java.lang.String" itemvalue="Python.Learn_login" />
+      <item index="2" class="java.lang.String" itemvalue="Python.Learn_login11" />
+      <item index="3" class="java.lang.String" itemvalue="Python.Dianping_BissRegion" />
+      <item index="4" class="java.lang.String" itemvalue="Python.Dianping_All_rest_Order" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.Dianping_Allrest" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Learn_login11" />
-        <item index="2" class="java.lang.String" itemvalue="Python.Learn_login" />
-        <item index="3" class="java.lang.String" itemvalue="Python.fanpa" />
-        <item index="4" class="java.lang.String" itemvalue="Python.Dianping" />
+        <item index="0" class="java.lang.String" itemvalue="Python.Dianping_All_rest_Order" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Dianping_BissRegion" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Dianping_Allrest" />
+        <item index="3" class="java.lang.String" itemvalue="Python.Learn_login11" />
+        <item index="4" class="java.lang.String" itemvalue="Python.Learn_login" />
       </list>
     </recent_temporary>
   </component>
@@ -631,20 +659,27 @@
       <option name="project" value="LOCAL" />
       <updated>1469184779427</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="按照行政区每个区50页爬取完成">
+      <created>1469203550936</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1469203550936</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17291667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17291667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29281184" sideWeight="0.471875" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.4941435" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29598308" sideWeight="0.528125" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2896406" sideWeight="0.528125" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -673,7 +708,8 @@
     <MESSAGE value="学mysql" />
     <MESSAGE value="上海各个区爬取完成" />
     <MESSAGE value="爬取一页的评论完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="爬取一页的评论完成" />
+    <MESSAGE value="按照行政区每个区50页爬取完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="按照行政区每个区50页爬取完成" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -689,27 +725,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/sameple.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="26" column="11" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pylearning.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Webdetail.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -985,13 +1000,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dianping.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="42" column="36" selection-start-line="42" selection-start-column="36" selection-end-line="42" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="313">
@@ -1007,16 +1015,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/taobao.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="779">
+          <caret line="41" column="35" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="35" />
+          <folding>
+            <marker date="1469263206037" expanded="true" signature="1402:1473" ph="insert into commenttxu5_1... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dianping.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+          <folding>
+            <marker date="1469284343546" expanded="true" signature="656:793" ph="create table... area" />
+            <marker date="1469284343546" expanded="true" signature="987:1075" ph="INSERT INTO area... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Dianping_Allrest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="160" column="42" selection-start-line="160" selection-start-column="42" selection-end-line="160" selection-end-column="42" />
+        <state relative-caret-position="190">
+          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
           <folding>
             <element signature="e#23#45#0" expanded="true" />
-            <marker date="1469197084259" expanded="true" signature="1370:1807" ph="create table... restaurants" />
-            <marker date="1469197084259" expanded="true" signature="2199:2484" ph="INSERT INTO restaurants... " />
-            <marker date="1469197084259" expanded="true" signature="7139:7157" ph="select * fro... area" />
-            <marker date="1469197084259" expanded="true" signature="7139:7158" ph="create table... restaurants" />
+            <marker date="1469284378962" expanded="true" signature="1388:1825" ph="create table... restaurants" />
+            <marker date="1469284378962" expanded="true" signature="2217:2502" ph="INSERT INTO restaurants... " />
+            <marker date="1469284378962" expanded="true" signature="7157:7175" ph="select * fro... area" />
+            <marker date="1469284378962" expanded="true" signature="7157:7176" ph="create table... restaurants" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dianping_BissRegion.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-38">
+          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+          <folding>
+            <marker date="1469281421322" expanded="true" signature="693:860" ph="create table... bussi_region" />
+            <marker date="1469281421322" expanded="true" signature="1147:1257" ph="INSERT INTO bussi_region... " />
+            <marker date="1469281421322" expanded="true" signature="1557:1575" ph="select * fro... area" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dianping_All_rest_Order.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+          <folding>
+            <marker date="1469330634301" expanded="true" signature="1405:1816" ph="create table... restaurants" />
+            <marker date="1469330634301" expanded="true" signature="2194:2462" ph="INSERT INTO restaurants... " />
+            <marker date="1469330634301" expanded="true" signature="7346:7372" ph="select * fro... bussi_region" />
           </folding>
         </state>
       </provider>

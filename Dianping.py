@@ -3,7 +3,7 @@ import mysql.connector
 import requests
 import datetime
 from bs4 import BeautifulSoup
-
+#爬取上海各个行政区
 headers = {
     "Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
     "Accept-Language" :"zh-CN,zh;q=0.8",
