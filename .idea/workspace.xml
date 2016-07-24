@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d958264-8bac-4fa3-9742-163ed34d0a23" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Dianping_All_Distrit.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Dianping.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PythonCode.iws" />
@@ -63,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Dianping_All_rest_Order.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Dianping_All_rest_Order.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dianping_All_rest_Order.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="161" column="47" selection-start-line="161" selection-start-column="47" selection-end-line="161" selection-end-column="47" />
+            <state relative-caret-position="2793">
+              <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
               <folding>
                 <marker date="1469343977248" expanded="true" signature="1405:1816" ph="create table... restaurants" />
                 <marker date="1469343977248" expanded="true" signature="2194:2462" ph="INSERT INTO restaurants... " />
@@ -89,11 +91,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Dianping.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dianping.py">
+      <file leaf-file-name="Dianping_All_Distrit.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Dianping_All_Distrit.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+            <state relative-caret-position="133">
+              <caret line="10" column="59" selection-start-line="10" selection-start-column="59" selection-end-line="10" selection-end-column="59" />
               <folding>
                 <marker date="1469284343546" expanded="true" signature="656:793" ph="create table... area" />
                 <marker date="1469284343546" expanded="true" signature="987:1075" ph="INSERT INTO area... " />
@@ -105,7 +107,7 @@
       <file leaf-file-name="Dianping_BissRegion.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dianping_BissRegion.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-38">
+            <state relative-caret-position="304">
               <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
               <folding>
                 <marker date="1469281421322" expanded="true" signature="693:860" ph="create table... bussi_region" />
@@ -743,13 +745,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Webdetail.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SonwLearn.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1033,23 +1028,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/taobao.py">
+    <entry file="file://$PROJECT_DIR$/Dianping_All_rest_Order.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="779">
-          <caret line="41" column="35" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="35" />
+        <state relative-caret-position="2793">
+          <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
           <folding>
-            <marker date="1469263206037" expanded="true" signature="1402:1473" ph="insert into commenttxu5_1... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dianping.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
-          <folding>
-            <marker date="1469284343546" expanded="true" signature="656:793" ph="create table... area" />
-            <marker date="1469284343546" expanded="true" signature="987:1075" ph="INSERT INTO area... " />
+            <marker date="1469343977248" expanded="true" signature="1405:1816" ph="create table... restaurants" />
+            <marker date="1469343977248" expanded="true" signature="2194:2462" ph="INSERT INTO restaurants... " />
+            <marker date="1469343977248" expanded="true" signature="7346:7372" ph="select * fro... bussi_region" />
           </folding>
         </state>
       </provider>
@@ -1070,7 +1056,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Dianping_BissRegion.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-38">
+        <state relative-caret-position="304">
           <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
           <folding>
             <marker date="1469281421322" expanded="true" signature="693:860" ph="create table... bussi_region" />
@@ -1080,14 +1066,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dianping_All_rest_Order.py">
+    <entry file="file://$PROJECT_DIR$/Dianping.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="161" column="47" selection-start-line="161" selection-start-column="47" selection-end-line="161" selection-end-column="47" />
+        <state relative-caret-position="38">
+          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taobao.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="779">
+          <caret line="41" column="35" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="35" />
           <folding>
-            <marker date="1469343977248" expanded="true" signature="1405:1816" ph="create table... restaurants" />
-            <marker date="1469343977248" expanded="true" signature="2194:2462" ph="INSERT INTO restaurants... " />
-            <marker date="1469343977248" expanded="true" signature="7346:7372" ph="select * fro... bussi_region" />
+            <marker date="1469263206037" expanded="true" signature="1402:1473" ph="insert into commenttxu5_1... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dianping_All_Distrit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="10" column="59" selection-start-line="10" selection-start-column="59" selection-end-line="10" selection-end-column="59" />
+          <folding>
+            <marker date="1469284343546" expanded="true" signature="656:793" ph="create table... area" />
+            <marker date="1469284343546" expanded="true" signature="987:1075" ph="INSERT INTO area... " />
           </folding>
         </state>
       </provider>
