@@ -166,11 +166,11 @@ for item in a:
     region_name=item[1]
     region_link =item[2]+"o10" #店铺按照点评最多排序
     print("========开始爬取 商圈id:",region_id,"商圈名称：",region_name,"链接：",region_link)
-    # find_res_onePage(region_link,region_id)
-    # try:
-    #     find_all(region_link)
-    # except BaseException as e:
-    #     print("爬取该商圈出错啦",e)
-    #     pass
+    find_res_onePage(region_link,region_id)
+    try:
+        find_all(region_link)
+    except BaseException as e:
+        print("爬取该商圈出错啦",e)
+        pass
         # find_res_onePage("http://www.dianping.com/search/category/1/10/c3580p46?aid=67224668%2C66553218%2C58311855%2C67218964%2C57309973%2C59398184")
 # find_all("http://www.dianping.com/search/category/1/10/r22948o10")
