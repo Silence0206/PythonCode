@@ -70,7 +70,7 @@ def find_res_onePage(url):
     for shop in shops.find_all("li"):
         try:
             atts = shop.attrs
-            if (atts.get('data-midas') is None):
+            if (atts.get('data-midas') is None): #推广的不要
                 item = shop.find(class_="txt")  # 每家店总标签
                 name_a = item.select(".tit > a")  # 带店名的那个快捷方式
                 name = name_a[0].get_text(strip=True)
