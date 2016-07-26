@@ -237,5 +237,5 @@ for item in a :
         error_resIdLog.writelines("时间："+ datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")+"findall出问题："+region_id+"   "+region_link+"\n")
     time.sleep(2)
 
-find_all_page("http://www.dianping.com/shop/10329231/review_more?pageno=253 ")
-set_flag("10329231")
+# find_all_page("http://www.dianping.com/shop/10329231/review_more?pageno=253 ")
+# set_flag("10329231")
