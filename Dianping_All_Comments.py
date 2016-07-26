@@ -55,7 +55,6 @@ formatter = logging.Formatter('%(asctime)s  %(funcName)s  %(module)s [line:%(lin
 fh.setFormatter(formatter)
 logger.addHandler(fh)
 
-
 def create_database(usr, pwd, db):
     global conn
     try:
@@ -76,36 +75,39 @@ def create_database(usr, pwd, db):
 #访问过的店铺做标记
 def set_flag(resId):
     global conn
+    conn = mysql.connector.connect(user='root', password='58424716', database='dianping')
     try:
         cursor = conn.cursor()
         cursor.execute('UPDATE restaurants SET flag=TRUE  WHERE res_id =%s'% resId)
         conn.commit()
         cursor.close()
     except mysql.connector.Error as e:
-        print("创建数据库出问题啦", e)
+        print("标记已爬店铺ID出问题", e)
         logger.error(e)
-        error_resIdLog = open('error_resId.txt', 'a')
+        error_resIdLog = open('Flag_error_resId.txt', 'a')
         error_resIdLog.writelines("时间：", datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),"做标记失败的店铺："+resId+"\n")
         conn.rollback
 
 # 更新一条记录的状态（某家店的某条评论）
 def insert_rescomments (comment_Id , res_id ,member_Id , member_name,isVIP, member_rank  ,given_rank  ,mean_price ,
             taste  ,envir  ,service  ,comment_text , comment_time ,addtime   ):
-    global conn
-    cursor = conn.cursor()
+    global conn2
+    conn2 = mysql.connector.connect(user='root', password='58424716', database='dianping',charset='utf8mb4')
+    cursor = conn2.cursor()
     cursor.execute(
         'INSERT INTO comments (comment_Id , res_id ,member_Id , member_name,isVIP, member_rank  ,given_rank  ,mean_price ,taste  ,envir  ,service  ,comment_text , comment_time ,addtime,flag)'
         'VALUES (%s, %s, %s, %s, %s,%s, %s, %s, %s, %s, %s, %s, %s, %s,%s);',
         (comment_Id , res_id ,member_Id , member_name,isVIP, member_rank  ,given_rank  ,mean_price ,taste  ,envir  ,service  ,comment_text , comment_time ,addtime, False))
-    conn.commit()
+    conn2.commit()
     cursor.close()
     print(comment_Id, res_id, member_Id, member_name,isVIP, member_rank, given_rank, mean_price, taste, envir, service,comment_text, comment_time, addtime ,"插入成功")
 
 def find_comment_onePage(url):
-    resId= url.split("/")[4]
-    if("review_more" not  in url):
-        url += "/review_more"
     try:
+        print("新一轮onepage",url)
+        resId = url.split("/")[4]
+        if ("review_more" not in url):
+            url += "/review_more"
         req = requests.get(url, headers=headers)
         soup = BeautifulSoup(req.text, 'lxml')
         # 页码
@@ -119,8 +121,8 @@ def find_comment_onePage(url):
         comts = soup.find(class_="comment-list").find("ul")
     except BaseException as e:
         print(url, "打开出错休息2秒 错误原因：", e)
-        error_resIdLog = open('fail_resId.txt', 'a')
-        error_resIdLog.writelines(url+"打开页面失败的店铺："+resId+"时间："+ datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")+"原因：" + str(e) + "=========================\n")
+        error_resIdLog = open('fail_open_resURL.txt', 'a')
+        error_resIdLog.writelines(url+"打开页面失败的店铺："+"时间："+ datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")+"原因：" + str(e) + "=========================\n")
         logger.error(e)
         time.sleep(1)
         return ("")
@@ -141,7 +143,7 @@ def find_comment_onePage(url):
             given_rank = int(mode.findall(given_rank)[-1])
             mean_price = content.find(class_="comm-per")
             if(mean_price is not None):
-                mean_price =int(mean_price.text.replace("人均 ￥","").replace(u'\xa0', u' ') )
+                mean_price =int(mean_price.text.replace("人均 ￥","").replace("消费 ￥","").replace("费用 ￥","").replace(u'\xa0', u' ') )
             else:
                 mean_price = 0
             comment_list = content.find(class_="comment-rst")
@@ -197,14 +199,13 @@ def find_comment_onePage(url):
 def find_all_page(url):
     link = url
     while (link != ""):
-        print(find_comment_onePage(link))
         link = find_comment_onePage(link)[0]
 
 def read_list(usr, pwd, db):
     try:
         conn1 = mysql.connector.connect(user=usr, password=pwd, database=db)
         cursor = conn1.cursor()
-        cursor.execute( 'SELECT * FROM restaurants where comm_num >50 and flag=false order by  res_id limit 0,10')
+        cursor.execute( 'SELECT * FROM restaurants where comm_num >=50 and flag=false order by  res_id limit 0,10')
         rows = cursor.fetchall()
         cursor.close()
         conn1.close()
@@ -213,22 +214,28 @@ def read_list(usr, pwd, db):
         print("出问题啦", e)
         return
 
-# create_database('root', '58424716', 'dianping')
-# a=read_list('root', '58424716', 'dianping')
-# for item in a :
-#     region_id=item[0] #店铺id 店铺名称 店铺链接
-#     region_name=item[1]
-#     region_link =item[2]
-#     print("========开始爬取 店铺id:",region_id,"店铺名称：",region_name,"店铺链接：",region_link)
-#     try:
-#         find_all_page(region_link)
-#         set_flag(region_id)
-#     except BaseException as e:
-#         print("爬取该店铺出错啦",e)
-#         logger.error(e)
-#         error_resIdLog = open('error_resId.txt', 'a')
-#         error_resIdLog.writelines("时间："+ datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")+"findall出问题："+region_id+"   "+region_link+"\n")
-#     time.sleep(2)
+create_database('root', '58424716', 'dianping')
+a=read_list('root', '58424716', 'dianping')
+print(a)
+error_resIdLog = open('start.txt', 'a')
+error_resIdLog.writelines("开始时间：" + datetime.datetime.now().strftime(
+    "%Y-%m-%d %H:%M:%S") +"\n")
+for item in a :
+    region_id=item[0] #店铺id 店铺名称 店铺链接
+    region_name=item[1]
+    region_link =item[2]
+    print("========开始爬取 店铺id:",region_id,"店铺名称：",region_name,"店铺链接：",region_link)
+    try:
+        find_all_page(region_link)
+        success_resIdLog = open('success.txt', 'a')
+        success_resIdLog.writelines(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")+region_id+region_link+"\n")
+        set_flag(region_id)
+    except BaseException as e:
+        print("爬取该店铺出错啦",e)
+        logger.error(e)
+        error_resIdLog = open('error_resId.txt', 'a')
+        error_resIdLog.writelines("时间："+ datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")+"findall出问题："+region_id+"   "+region_link+"\n")
+    time.sleep(2)
 
-req = requests.get(" http://www.dianping.com/shop/10329816", headers=headers,proxies=proxies)
-soup = BeautifulSoup(req.text, 'lxml')
+find_all_page("http://www.dianping.com/shop/10329231/review_more?pageno=253 ")
+set_flag("10329231")
