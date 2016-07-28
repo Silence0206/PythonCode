@@ -20,27 +20,6 @@ headers = {
     'Cookie':'m_rs=5a23972d-921a-4d46-9ff8-d385d3381dbd; _hc.v=00182c04-e7c3-0953-dc3a-0c57f60bdb0b.1469080663; __utma=1.273426386.1469369064.1469369064.1469369064.1; __utmz=1.1469369064.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); dper=79e1190dfef09628df10db9edd2c9590a25d955f69a85bfe684d4a4ff5d2ef02; ua=13816174065; PHOENIX_ID=0a65026a-1562272a84d-126c111; ll=7fd06e815b796be3df069dec7836c3df; s_ViewType=10; JSESSIONID=6043782DB8A392CA09529A51163D3CA0; aburl=1; cy=1; cye=shanghai'
 }
 proxies = {
-"http":"180.169.5.20:1920",
-"http":"119.188.94.145:80",
-"http":"180.161.16.166:8118",
-"http":"183.161.248.119:8118",
-"http":"60.185.209.157:8998",
-"http":"120.36.164.143:8118",
-"http":"122.239.26.137:8998",
-"http":"123.7.177.20:9999",
-"http":"119.165.239.81:8118",
-"http":"58.214.229.228:8118",
-"http":"123.119.18.138:8118",
-"http":"61.52.247.229:3128",
-"http":"183.129.178.14:8080",
-"http":"121.236.212.99:8998",
-"http":"222.211.65.72:8080",
-"http":"60.167.23.20:8118",
-"http":"122.96.59.105:843",
-"http":"123.168.109.150:2226",
-"http":"121.10.240.45:80",
-"http":"116.231.192.22:2226",
-
 
 }
 
@@ -139,8 +118,12 @@ def find_comment_onePage(url):
             mode = re.compile(r'\d+')
             member_rank = int(mode.findall(rank)[-1])
             content = comt.find(class_="content")
-            given_rank=content.select(".user-info > .item-rank-rst")[0]["class"][1]
-            given_rank = int(mode.findall(given_rank)[-1])
+            if(content.select(".user-info > .item-rank-rst")):
+                given_rank=content.select(".user-info > .item-rank-rst")[0]["class"][1]
+                given_rank = int(mode.findall(given_rank)[-1])
+            else:
+                given_rank =0
+
             mean_price = content.find(class_="comm-per")
             if(mean_price is not None):
                 mean_price =int(mean_price.text.replace("人均 ￥","").replace("消费 ￥","").replace("费用 ￥","").replace(u'\xa0', u' ') )
@@ -201,11 +184,11 @@ def find_all_page(url):
     while (link != ""):
         link = find_comment_onePage(link)[0]
 
-def read_list(usr, pwd, db):
+def read_list(usr, pwd, db,areaId):
     try:
         conn1 = mysql.connector.connect(user=usr, password=pwd, database=db)
         cursor = conn1.cursor()
-        cursor.execute( 'SELECT * FROM restaurants where comm_num >=50 and flag=false order by  res_id limit 0,10')
+        cursor.execute( 'SELECT * FROM dianping.restaurants where comm_num<1000 and comm_num>900 and Bussi_areaid= "%s" and flag=false order by  res_id'% areaId)
         rows = cursor.fetchall()
         cursor.close()
         conn1.close()
@@ -215,7 +198,7 @@ def read_list(usr, pwd, db):
         return
 
 create_database('root', '58424716', 'dianping')
-a=read_list('root', '58424716', 'dianping')
+a=read_list('root', '58424716', 'dianping','r804')
 print(a)
 error_resIdLog = open('start.txt', 'a')
 error_resIdLog.writelines("开始时间：" + datetime.datetime.now().strftime(
@@ -237,5 +220,7 @@ for item in a :
         error_resIdLog.writelines("时间："+ datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")+"findall出问题："+region_id+"   "+region_link+"\n")
     time.sleep(2)
 
-# find_all_page("http://www.dianping.com/shop/10329231/review_more?pageno=253 ")
-# set_flag("10329231")
+# find_all_page("http://www.dianping.com/shop/10647823/review_more?pageno=97 ")
+# set_flag("10647823")
+# find_all_page("http://www.dianping.com/shop/18046876/review_more?pageno=72")
+# set_flag("18046876")
