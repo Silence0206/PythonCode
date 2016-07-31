@@ -17,4 +17,5 @@ def getFail():
                 urls.append(line.strip().split("打开")[0])
     return urls
 
+print(len(getFail()))
 print(getFail())

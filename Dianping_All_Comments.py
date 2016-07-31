@@ -188,7 +188,7 @@ def read_list(usr, pwd, db,areaId):
     try:
         conn1 = mysql.connector.connect(user=usr, password=pwd, database=db)
         cursor = conn1.cursor()
-        cursor.execute( 'SELECT * FROM dianping.restaurants where comm_num<1000 and comm_num>900 and Bussi_areaid= "%s" and flag=false order by  res_id'% areaId)
+        cursor.execute( 'SELECT * FROM dianping.restaurants where  Bussi_areaid= "%s" and flag=false order by  res_id'% areaId)
         rows = cursor.fetchall()
         cursor.close()
         conn1.close()
@@ -197,30 +197,48 @@ def read_list(usr, pwd, db,areaId):
         print("出问题啦", e)
         return
 
-create_database('root', '58424716', 'dianping')
-a=read_list('root', '58424716', 'dianping','r804')
-print(a)
-error_resIdLog = open('start.txt', 'a')
-error_resIdLog.writelines("开始时间：" + datetime.datetime.now().strftime(
-    "%Y-%m-%d %H:%M:%S") +"\n")
-for item in a :
-    region_id=item[0] #店铺id 店铺名称 店铺链接
-    region_name=item[1]
-    region_link =item[2]
-    print("========开始爬取 店铺id:",region_id,"店铺名称：",region_name,"店铺链接：",region_link)
-    try:
-        find_all_page(region_link)
-        success_resIdLog = open('success.txt', 'a')
-        success_resIdLog.writelines(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")+region_id+region_link+"\n")
-        set_flag(region_id)
-    except BaseException as e:
-        print("爬取该店铺出错啦",e)
-        logger.error(e)
-        error_resIdLog = open('error_resId.txt', 'a')
-        error_resIdLog.writelines("时间："+ datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")+"findall出问题："+region_id+"   "+region_link+"\n")
-    time.sleep(2)
+#获取爬了一半就死的店面
+def getFail(file_name):
+    urls=[]
+    with open (file_name, 'r') as f:#'fail_open_resURL.txt'
+        for line in f.readlines():
+            if("pageno" in line.split("打开")[0]):
+                # print(line.strip().split("打开")[0])
+                urls.append(line.strip().split("打开")[0])
+    return urls
 
-# find_all_page("http://www.dianping.com/shop/10647823/review_more?pageno=97 ")
-# set_flag("10647823")
-# find_all_page("http://www.dianping.com/shop/18046876/review_more?pageno=72")
-# set_flag("18046876")
+
+def main(bussi_areaId):
+    create_database('root', '58424716', 'dianping')
+    a = read_list('root', '58424716', 'dianping',bussi_areaId)
+    print(a)
+    error_resIdLog = open('start.txt', 'a')
+    error_resIdLog.writelines("开始时间：" + datetime.datetime.now().strftime(
+        "%Y-%m-%d %H:%M:%S") + "\n")
+    for item in a:
+        region_id = item[0]  # 店铺id 店铺名称 店铺链接
+        region_name = item[1]
+        region_link = item[2]
+        print("========开始爬取 店铺id:", region_id, "店铺名称：", region_name, "店铺链接：", region_link)
+        try:
+            find_all_page(region_link)
+            success_resIdLog = open('success.txt', 'a')
+            success_resIdLog.writelines(
+                datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + region_id + region_link + "\n")
+            set_flag(region_id)
+        except BaseException as e:
+            print("爬取该店铺出错啦", e)
+            logger.error(e)
+            error_resIdLog = open('error_resId.txt', 'a')
+            error_resIdLog.writelines("时间：" + datetime.datetime.now().strftime(
+                "%Y-%m-%d %H:%M:%S") + "findall出问题：" + region_id + "   " + region_link + "\n")
+        time.sleep(2)
+
+# main("r5947")
+# if __name__ == '__main__':
+#     urls = getFail('fail_open_resURL.txt')
+#     for url in urls:
+#         resId = url.split("/")[4]
+#         find_all_page(url)
+#         set_flag(resId)
+
