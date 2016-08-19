@@ -63,8 +63,8 @@ def set_flag(resId):
     except mysql.connector.Error as e:
         print("标记已爬店铺ID出问题", e)
         logger.error(e)
-        with open('Flag_error_resId.txt', 'a') as error_resIdLog:
-            error_resIdLog.writelines("时间：", datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),"做标记失败的店铺："+resId+"\n")
+        error_resIdLog = open('Flag_error_resId.txt', 'a')
+        error_resIdLog.writelines("时间：", datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),"做标记失败的店铺："+resId+"\n")
         conn.rollback
 
 # 更新一条记录的状态（某家店的某条评论）
@@ -87,7 +87,7 @@ def find_comment_onePage(url):
         resId = url.split("/")[4]
         if ("review_more" not in url):
             url += "/review_more"
-        req = requests.get(url, headers=headers, timeout=20)
+        req = requests.get(url, headers=headers)
         soup = BeautifulSoup(req.text, 'lxml')
         # 页码
         pageDiv = soup.find(class_="Pages").find(class_="Pages")
@@ -100,9 +100,8 @@ def find_comment_onePage(url):
         comts = soup.find(class_="comment-list").find("ul")
     except BaseException as e:
         print(url, "打开出错休息2秒 错误原因：", e)
-        error_resLog= open('fail_open_resURL.txt', 'a')
-        error_resLog.writelines(url+"打开页面失败的店铺："+"时间："+ datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")+"原因：" + str(e) + "=========================\n")
-        error_resLog.close()
+        error_resIdLog = open('fail_open_resURL.txt', 'a')
+        error_resIdLog.writelines(url+"打开页面失败的店铺："+"时间："+ datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")+"原因：" + str(e) + "=========================\n")
         logger.error(e)
         time.sleep(1)
         return ("")
@@ -110,7 +109,7 @@ def find_comment_onePage(url):
         try:
             comment_Id = comt["data-id"]
             memnber_Id = comt.select(".pic > a")[0]["user-id"]
-            memnber_name = comt.select(".pic > .name")[0].get_text().replace(u'\xa0', u' ').replace(u'\xa5', u' ')
+            memnber_name = comt.select(".pic > .name")[0].get_text().replace(u'\xa0', u' ')
             isVIP = False
             if(comt.find(class_="icon-vip") is not None):
                 isVIP = True
@@ -119,12 +118,8 @@ def find_comment_onePage(url):
             mode = re.compile(r'\d+')
             member_rank = int(mode.findall(rank)[-1])
             content = comt.find(class_="content")
-            if(content.select(".user-info > .item-rank-rst")):
-                given_rank=content.select(".user-info > .item-rank-rst")[0]["class"][1]
-                given_rank = int(mode.findall(given_rank)[-1])
-            else:
-                given_rank =0
-
+            given_rank=content.select(".user-info > .item-rank-rst")[0]["class"][1]
+            given_rank = int(mode.findall(given_rank)[-1])
             mean_price = content.find(class_="comm-per")
             if(mean_price is not None):
                 mean_price =int(mean_price.text.replace("人均 ￥","").replace("消费 ￥","").replace("费用 ￥","").replace(u'\xa0', u' ') )
@@ -163,9 +158,9 @@ def find_comment_onePage(url):
             # print(comment_Id, resId, memnber_Id, memnber_name, isVIP, member_rank, given_rank, mean_price,taste, envir, service, com_text, comment_time, addtime)
         except BaseException as e:
             print("解析该页的某条数据出错啦", e)
-            with open('error_resId.txt', 'a') as error_resIdLog:
-                error_resIdLog.writelines("某条数据解析错误 页面地址：" + url +"评论人" +memnber_name+"\n")
-                error_resIdLog.writelines("时间："+ datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")+"原因：" + str(e) + "=========================\n")
+            error_resIdLog = open('error_resId.txt', 'a')
+            error_resIdLog.writelines("某条数据解析错误 页面地址：" + url +"评论人" +memnber_name+"\n")
+            error_resIdLog.writelines("时间："+ datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")+"原因：" + str(e) + "=========================\n")
             logger.error(e)
             time.sleep(1)
     print("第", curr_pageNum, "页爬取完成")
@@ -189,7 +184,7 @@ def read_list(usr, pwd, db,areaId):
     try:
         conn1 = mysql.connector.connect(user=usr, password=pwd, database=db)
         cursor = conn1.cursor()
-        cursor.execute( 'SELECT * FROM dianping.restaurants where  Bussi_areaid= "%s" and flag=false order by  res_id'% areaId)
+        cursor.execute( 'SELECT * FROM dianping.restaurants where comm_num>50 and Bussi_areaid= "%s" and flag=false order by  res_id'% areaId)
         rows = cursor.fetchall()
         cursor.close()
         conn1.close()
@@ -198,65 +193,30 @@ def read_list(usr, pwd, db,areaId):
         print("出问题啦", e)
         return
 
-#获取爬了一半就死的店面
-def getFail(file_name):
-    urls=[]
-    with open (file_name, 'r') as f:#'fail_open_resURL.txt'
-        for line in f.readlines():
-            if("pageno" in line.split("打开")[0]):
-                # print(line.strip().split("打开")[0])
-                urls.append(line.strip().split("打开")[0])
-    return urls
-
-
-def main(bussi_areaId):
-    create_database('root', '58424716', 'dianping')
-    a = read_list('root', '58424716', 'dianping',bussi_areaId)
-    print(a)
-    with open('start.txt', 'a') as startLog:
-        startLog.writelines("开始时间：" + datetime.datetime.now().strftime(
-        "%Y-%m-%d %H:%M:%S") + "\n")
-    for item in a:
-        region_id = item[0]  # 店铺id 店铺名称 店铺链接
-        region_name = item[1]
-        region_link = item[2]
-        print("========开始爬取 店铺id:", region_id, "店铺名称：", region_name, "店铺链接：", region_link)
-        try:
-            find_all_page(region_link)
-            set_flag(region_id)
-            with open('success.txt', 'a') as success_resIdLog:
-                success_resIdLog.writelines(
-                    datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + region_id + region_link + "\n")
-
-        except BaseException as e:
-            print("爬取该店铺出错啦", e)
-            logger.error(e)
-            with open('error_resId.txt', 'a') as error_resIdLog:
-                error_resIdLog.writelines("时间：" + datetime.datetime.now().strftime(
-                    "%Y-%m-%d %H:%M:%S") + "findall出问题：" + region_id + "   " + region_link + "\n")
-        time.sleep(2)
-
-
-#真正的主函数
-# main("r812")
-#记录在爬了一半失败的文档中把他们提取出来再来一遍
-if __name__ == '__main__':
-    urls = getFail('fail_open_resURL.txt')
-    print(urls)
-    for url in urls:
-        try:
-            print(type(url))
-            resId = url.split("/")[4]
-            find_all_page(url)
-            set_flag(resId)
-        except BaseException as e:
-            print(url,e)
-            with open('fail_open_resURL1.txt', 'a') as error_resIdLog:
-                error_resIdLog.writelines(url + "打开页面失败的店铺：" + "时间：" + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "原因：" + str(
-        e) + "=========================\n")
-
+create_database('root', '58424716', 'dianping')
+a=read_list('root', '58424716', 'dianping','r804')
+print(a)
+error_resIdLog = open('start.txt', 'a')
+error_resIdLog.writelines("开始时间：" + datetime.datetime.now().strftime(
+    "%Y-%m-%d %H:%M:%S") +"\n")
+for item in a :
+    region_id=item[0] #店铺id 店铺名称 店铺链接
+    region_name=item[1]
+    region_link =item[2]
+    print("========开始爬取 店铺id:",region_id,"店铺名称：",region_name,"店铺链接：",region_link)
+    try:
+        find_all_page(region_link)
+        success_resIdLog = open('success.txt', 'a')
+        success_resIdLog.writelines(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")+region_id+region_link+"\n")
+        set_flag(region_id)
+    except BaseException as e:
+        print("爬取该店铺出错啦",e)
+        logger.error(e)
+        error_resIdLog = open('error_resId.txt', 'a')
+        error_resIdLog.writelines("时间："+ datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")+"findall出问题："+region_id+"   "+region_link+"\n")
+    time.sleep(2)
 #
-# find_all_page("http://www.dianping.com/shop/11552135/review_more?pageno=45")
-# set_flag("11552135")
-
-
+# find_all_page("http://www.dianping.com/shop/10647823/review_more?pageno=97 ")
+# set_flag("10647823")
+# find_all_page("http://www.dianping.com/shop/18062013/review_more?pageno=125")
+# set_flag("18062013")

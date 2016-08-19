@@ -3,19 +3,31 @@ import mysql.connector
 import requests
 import datetime
 import re
+import jieba
+import jieba.posseg #需要另外加载一个词性标注模块
 import time
 from bs4 import BeautifulSoup
 import logging
+import  codecs
 
-#调用readline()可以每次读取一行内容，调用readlines()一次读取所有内容并按行返回list。
-def getFail():
-    urls=[]
-    with open ('fail_open_resURL.txt', 'r') as f:
-        for line in f.readlines():
-            if("pageno" in line.split("打开")[0]):
-                # print(line.strip().split("打开")[0])
-                urls.append(line.strip().split("打开")[0])
-    return urls
+def get_txt_data(filepath, para):
+    if para == 'lines':
+        txt_file1 = codecs.open(filepath, 'r',encoding='utf-8')
+        txt_tmp1 = txt_file1.readlines()
+        print(type(txt_tmp1[0]))
+        print(txt_tmp1)
+        txt_tmp2 = ''.join(txt_tmp1)
+        print((txt_tmp2))
+        txt_data1 = txt_tmp2.split('\r\n')
+        print(type(txt_data1))
+        txt_file1.close()
+        return txt_data1
+    elif para == 'line':
+        txt_file2 = open(filepath, 'r')
+        txt_tmp = txt_file2.readline()
+        txt_data2 = txt_tmp
+        txt_file2.close()
+        return txt_data2
 
-print(len(getFail()))
-print(getFail())
+print(get_txt_data('ha.txt',"lines"))
+

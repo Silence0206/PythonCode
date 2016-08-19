@@ -1,0 +1,17 @@
+
+
+
+
+
+间：2016-08-04 00:45:23原因：'NoneType' object has no attribute 'find'=========================
+http://www.dianping.com/shop/14180269/review_more?pageno=391打开页面失败的店铺：时间：2016-08-04 00:55:30原因：HTTPConnectionPool(host='www.dianping.com', port=80): Read timed out.=========================
+http://www.dianping.com/shop/15124964/review_more?pageno=249打开页面失败的店铺：时间：2016-08-04 00:57:15原因：HTTPConnectionPool(host='www.dianping.com', port=80): Read timed out.=========================
+http://www.dianping.com/shop/15866661/review_more?pageno=142打开页面失败的店铺：时间：2016-08-04 00:58:17原因：HTTPConnectionPool(host='www.dianping.com', port=80): Read timed out.=========================
+http://www.dianping.com/shop/17889474/review_more?pageno=269打开页面失败的店铺：时间：2016-08-04 00:59:54原因：HTTPConnectionPool(host='www.dianping.com', port=80): Read timed out.=========================
+http://www.dianping.com/shop/19291463/review_more?pageno=374打开页面失败的店铺：时间：2016-08-04 01:01:11原因：HTTPConnectionPool(host='www.dianping.com', port=80): Read timed out.=========================
+http://www.dianping.com/shop/19291525/review_more?pageno=202打开页面失败的店铺：时间：2016-08-04 01:02:59原因：HTTPConnectionPool(host='www.dianping.com', port=80): Read timed out.=========================
+http://www.dianping.com/shop/14180269/review_more?pageno=393打开页面失败的店铺：时间：2016-08-04 01:04:23原因：HTTPConnectionPool(host='www.dianping.com', port=80): Read timed out.=========================
+http://www.dianping.com/shop/15124964/review_more?pageno=264打开页面失败的店铺：时间：2016-08-04 01:05:30原因：HTTPConnectionPool(host='www.dianping.com', port=80): Read timed out.=========================
+http://www.dianping.com/shop/15866661/review_more?pageno=193打开页面失败的店铺：时间：2016-08-04 01:08:41原因：HTTPConnectionPool(host='www.dianping.com', port=80): Read timed out.=========================
+http://www.dianping.com/shop/19291463/review_more?pageno=451打开页面失败的店铺：时间：2016-08-04 01:13:50原因：HTTPConnectionPool(host='www.dianping.com', port=80): Read timed out.=========================
+http://www.dianping.com/shop/19291525/review_more?pageno=210打开页面失败的店铺：时间：2016-08-04 01:14:38原因：HTTPConnectionPool(host='www.dianping.com', port=80): Read timed out.=========================
